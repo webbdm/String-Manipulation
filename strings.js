@@ -1,27 +1,35 @@
 var testString = "";
 
 
-var textInput = document.getElementById('text');
-var test = textInput.value;
+var element = document.getElementById('text');
 
-var test = document.getElementById('p');
+var p = document.getElementById('p').innerHTML;
+
+var button = document.getElementById('button');
+
+// listener
+button.addEventListener("click", stringFunc);
 
 
-// functions
-
-function reversal(testString) {
-
-	output.innerHTML = testString.reverse();
-	console.log(output.innerHTML);
-
+// input: string
+// returns: string
+function reversal(input) {
+	var output = input.split('').reverse().join('');
+	return output;
 }
 
-function alphabits() {
-
+// input: string
+// output: string with letters sorted by alpha
+function alphabits(input) {
+	var output = input.split('').sort().join('');
+	return output;
 }
 
-function palindrome() {
-
+// input: string
+// output: boolean indicating if the input is a palindrome
+function palindrome(input) {
+	var output = input === reversal(input);
+	return output;
 }
 
 
@@ -29,16 +37,16 @@ function palindrome() {
 
 function stringFunc() {
 
-	output.innerHTML = testString;
-	console.log(testString);
+	var input = element.value;
+	console.log(input);
 
-	// reversal(testString);
-	// alphabits(testString);
-	// palindrome(testString);
+	reversal(input);
+	alphabits(input);
+	palindrome(input);
 
 };
 
-// listener
 
-button.addEventListener("click", stringFunc);
+
+
 
